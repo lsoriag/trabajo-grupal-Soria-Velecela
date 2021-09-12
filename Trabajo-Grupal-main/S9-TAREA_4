@@ -1,0 +1,88 @@
+print("____________________________________________________________________________________________________")
+print("|                                                                                                  |")
+print("| N O M I N A                                                                                      |")
+print("____________________________________________________________________________________________________")
+print("|                                                                                                  |")
+
+class Empresa:
+    def __init__(self,nom="Alixe", ruc="0000e", telf="09891166306", direc="av. Doc. Miguel Campononico"):
+        self.nombre=nom
+        self.ruc=ruc
+        self.telefono=telf
+        self.direccion=direc
+        
+
+    def mostrarEmpresa(self):
+        print("| Empresa {:20}\n| Ruc:{:20} Direccion: {:15}\n| Telefono: {}".format(self.nombre , self.ruc, self.direccion, self. telefono))
+
+
+class Departamento():
+    def __init__(self,empl="Alice Altamirano",dep="Administrativo",id="3456234-lp"):
+        self.departamento=dep 
+        self.empleado=empl 
+        self.id=id
+        
+    def mostrarDepartamento(self):
+        print("| Departamento: {:20}  ID: {:24}   Empleado: {} ".format(self.departamento,self.id,self.empleado))
+
+class Empleado():
+    def __init__(self,suel="480", Horas="240", PagoHora="2"):
+        self.sueldo=suel
+        self.horas=Horas
+        self.PagoPorHoras=PagoHora
+        #PagoHora=suel/240
+
+    def mostrarEmpleado(self):
+        print("| Sueldo: ${:26} Horas trabajadas: {:10}   Pago por Hora: ${}".format(self.sueldo, self.horas, self.PagoPorHoras))
+
+class SobreTiempo(Empleado):
+    def __init__(self, suel, Horas, PagoHora ,Hrecargo="4", Hextra="6",sobretiempo="4 ",nuevosueldo="60"):
+        super().__init__(suel=suel, Horas=Horas, PagoHora=PagoHora)
+        self.Hrecargo=Hrecargo
+        self.Hextra=Hextra
+        self.sobretiempo=sobretiempo
+        #sobretiempo=PagoHora*(Hrecargo*0.5+Hextra*2)
+        self.nuevosueldo=nuevosueldo
+        #nuevosueldo=suel+sobretiempo
+
+    def mostrarSobreTiempo(self):
+        print("| Horas extras: {:20}  Pago por Hora extra: ${:7}  Sueldo Extra: ${}".format(self.Hextra,self.sobretiempo,self.nuevosueldo))
+
+class Complementos():
+    def  __init__(self,comision="20", antiguedad="5",prestamo="200",iess="25"):
+        self.comision=comision
+        #comision*suel
+        self.antiguedad=antiguedad
+        #self.antiguedad(Fechaingreso - Fechaactual)/365*sueldo
+        self.prestamo=prestamo
+        #print(float(input("Ingrese la cuota del prestamo: ")))
+        self.iessempleado=iess
+        #iess=self.iessempleado*(suel+hextra)
+
+    def mostrarComplentos(self):
+        print("| Comision: ${:24} Antiguedad que posee: {} años   Cuota Prestamo: ${}".format(self.comision,self.antiguedad,self.prestamo))
+        print("| Aporte al Iess: ${}".format(self.iessempleado))
+
+    def mostrarToting(self,toting="565", totdes="225 ", valRecibir=" 340"):
+        print("| Total Ingreso: ${}".format(toting))
+        print("| Total descuento: ${}".format(totdes))
+        print("| Total a recibir: ${}".format(valRecibir))
+
+emp=Empresa()
+dep=Departamento()
+mpl=Empleado()
+sob=SobreTiempo(" "," "," ")
+com=Complementos()
+
+emp.mostrarEmpresa()
+print("|--------------------------------------------------------------------------------------------------|")
+dep.mostrarDepartamento()
+print("|--------------------------------------------------------------------------------------------------|")
+mpl.mostrarEmpleado()
+print("|--------------------------------------------------------------------------------------------------|")
+sob.mostrarSobreTiempo()
+print("|--------------------------------------------------------------------------------------------------|")
+com.mostrarComplentos()
+print("|--------------------------------------------------------------------------------------------------|")
+com.mostrarToting()
+print("|--------------------------------------------------------------------------------------------------|")
